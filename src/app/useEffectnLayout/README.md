@@ -46,9 +46,21 @@ React.useEffect(() => {
 
 return <button onClick={() => setState(state + 1)}> 
 ```
-Ketika button di klik, button akan memanggil function setState(), artinya nilai state berubah. Maka dari useEffect baru akan melakukan tugasnya/merender ulang jika dependensi `state`, bisa coba lihat di example.
+Ketika button di klik, button akan memanggil function setState(), artinya nilai state berubah. Maka dari itu useEffect baru akan melakukan tugasnya/merender ulang komponen ketika dependensi `state` ini berubah, bisa coba lihat di example.
 
 Jika dependensi nya kosong `[]`, artinya `useEffect` hanya akan berjalan ketika pertama kali saja artinya **hanya sekali**. Jika tanpa dependencies `React.useEffect(() => { ... })`, artinya `useEffect` akan berjalan setelah **setiap komponen di render ulang**.
+
+```tsx
+// Render at once
+React.useEffect(() => {
+    console.log('useEffect() berjalan hanya sekali');
+}, []);
+
+// Render every component re-rendered
+React.useEffect(() => {
+    console.log('useEffect() berjalan setiap komponen di render ulang');
+});
+```
 
 
 ## `useLayoutEffect()`
@@ -97,6 +109,6 @@ Coba lihat di browser lalu klik button beberapa kali secara cepat. Maka akan ter
 - Hati-hati dengan dependencies, karena jika tidak tepat penggunannya akan menyebabkan bugs pada apps, ex: infinite loop. Pasang dependencies jika diperlukan saja, sesuaikan dengan kebutuhan.
 - Jika ingin melakukan perubahan DOM atau masalah visual yang sifatnya synchronous, disarankan menggunakan `useLayoutEffect()`, karena akan lebih cepat, dan menghindari pemblokiran visual seperti pada contoh diatas tadi.
 
-### Next Hooks
+# Next Hooks
 [useEffect() & useLayoutEffect()](https://reactjs.org/docs/hooks-reference.html#usereducer)
 
