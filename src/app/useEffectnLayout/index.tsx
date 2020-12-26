@@ -11,7 +11,7 @@ import * as React from 'react';
  * Ini berhubungan dengan lifecycle (for function component) dan proses render di react. 
  * Sesuai dengan namanya fungsinya adalah untuk side effect, contoh: Pemanggilan API, Perubahan/Manipulasi DOM, Waktu timeOut, dll. 
  * 
- * Jadi diluar ini, disarankan tidak menggunakan hooks useEffect(), karena ada suatu case, bisa menggunakan cara yang lebih tepat, 
+ * Jadi diluar ini, disarankan tidak menggunakan hooks useEffect(), karena ada suatu cara yang lebih tepat, 
  * seperti useLayoutEffect(), useMemo(), useCallback()
  * 
  * Terdapat beberapa tahap umum lifecycle di react, yaitu: 
