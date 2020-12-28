@@ -110,5 +110,5 @@ Coba lihat di browser lalu klik button beberapa kali secara cepat. Maka akan ter
 - Jika ingin melakukan perubahan DOM atau masalah visual yang sifatnya synchronous, disarankan menggunakan `useLayoutEffect()`, karena akan lebih cepat, dan menghindari pemblokiran visual seperti pada contoh diatas tadi.
 
 ## Next Hooks
-[useEffect() & useLayoutEffect()](https://reactjs.org/docs/hooks-reference.html#usereducer)
+[useContext()](https://github.com/natserract/react-hooks-deepdive/tree/main/src/app/useContext)
 

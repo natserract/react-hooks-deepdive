@@ -15,7 +15,7 @@ Jika kita membaca dokumentasi, React memberikan beberapa solusi tepat dari masal
 
 Namun, bila tujuannya untuk sharing data antar komponen yang sifatnya global seperti: **authentikasi user, tema, cache data, dan language**, maka ini adalah cara yang tepat untuk menggunakan `context`. Inipun kita juga harus hati-hati dan tepat dalam menggunakannya *'apply it sparingly because it makes component reuse more difficult.'*.
 
-## Komposisi Komponen
+## Component Composition
 Ini sebenernya merupakan sebuah komponen pattern yang digunakan untuk **membangun komponen dari komponen lain menjadi kesatuan yang lebih besar**, istilahnya seperti **gotong royong**. Tetapi, konsep ini punya aturan, casenya seperti ini anggap saja dalam gotong royong terdapat 2 role, role sebagai **ketua kelompok** dan role sebagai **anggota**. 
 
 Aturannya adalah ketika para anggota saling bahu membahu untuk membawa box(misal) maka anggota lain **tidak perlu tahu isi box tersebut apa**. Tugasnya anggota hanya **membawa box tersebut sampai ke tujuan**. Sedangkan ketua kelompok tugasnya mengawasi dan menyiapkan box supaya siap dikirim ke pelanggan, seperti *label, rincian, dll`.
@@ -27,7 +27,7 @@ function Anggota(props){
 }
  
 function Anggota_Dua(props){
-  return <button>{ props.render }</button> // Cuman sebagai terusan
+  return <button>{ props.render }</button> // Cuman sebagai terusan untuk merender <Anggota/>
 }
  
 function KetuaKelompok(){
@@ -42,7 +42,7 @@ Pada intinya komposisi komponen ini tujuannya adalah sebagai **terusan** yang di
 ## Context
 Seperti yang dijelaskan diatas, context adalah global state management. Sebenernya harusnya disini saya langsung saja menjelaskan bagaimana cara dan konsep `useContext()` hooks, cuman karena ada beberapa proses yang berhubungan jadi saya akan jelaskan secara detail.
 
-Pada beberapa source biasanya menggunakan ['useReducer()`](https://reactjs.org/docs/hooks-reference.html#usereducer) untuk melakukan manipulasi state, padahal case yang dialami hanya seperti dibawah ini:
+Pada beberapa source biasanya menggunakan [useReducer()](https://reactjs.org/docs/hooks-reference.html#usereducer) untuk melakukan manipulasi state, padahal case yang dialami hanya seperti dibawah ini:
 
 ```tsx
 // Reducer
@@ -127,7 +127,7 @@ const contextCallbackState = React.useContext<any>(ContextCallback);
 const { setContextCallback } = contextCallbackState;
 ```
 
-Kamu juga  bisa menginitialize `useCallback()` nya di function providernya atau bisa di komponennya langsung cuman saya lebih prefer di providernya sih. Contoh kodenya seperti ini:
+Kamu juga  bisa menginitialize `useCallback()` nya di komponennya langsung cuman saya lebih prefer di providernya sih. Contoh kodenya seperti ini:
 
 ```tsx
 const handlerCallback = React.useCallback(() => {
@@ -140,3 +140,8 @@ const handlerCallback = React.useCallback(() => {
 ```
 
 Alasannya mengapa menggunakan `useCallback()` adalah karena ini *'Using an arrow function in render creates a new function each time the component renders, which may break optimizations based on strict identity comparison.'* artinya arrow function `() => { ... }` ini akan membuat fungsi baru setiap kali komponen dirender ulang, ini bisa menyebabkan [memory leaks](https://www.lambdatest.com/blog/eradicating-memory-leaks-in-javascript/). Lebih jelasnya nanti akan dijelaskan di module selanjutnya mengenai `useCallback()`.
+
+
+## Next Hooks
+[useEffect() & useLayoutEffect()](https://reactjs.org/docs/hooks-reference.html#usereducer)
+
