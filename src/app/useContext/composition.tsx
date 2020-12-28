@@ -59,7 +59,7 @@ function Contact(props: any) {
 function Page() {
     return (
         <Contact
-            desc='https://reactjs.org/docs/composition-vs-inheritance.html#gatsby-focus-wrapper'
+            desc='https://reactjs.org/docs/composition-vs-inheritance.html'
             title='Component Composition'
         />
     )

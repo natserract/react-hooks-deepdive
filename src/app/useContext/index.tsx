@@ -52,12 +52,13 @@ function UseContext() {
 
 
     const handlerNoCallback = () => setState({
-        state: 'Without useCallback()'
+        state: 'Without useCallback()',
     })
 
     const handlerWCallback = () => setContextCallback({
         callbackState: 'With useCallback()'
     })
+
 
     return (
         <React.Fragment>
@@ -72,7 +73,7 @@ function UseContext() {
                 <button onClick={() => handlerWCallback()}>Click Me</button>
             </div>
 
-            <Composition/>
+            <Composition />
         </React.Fragment>
     )
 }
