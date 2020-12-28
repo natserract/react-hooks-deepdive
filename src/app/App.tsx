@@ -8,6 +8,7 @@ import {
 
 import UseState from './useState/';
 import UseEffect from './useEffectnLayout';
+import UseContext from './useContext';
 
 const App: React.FunctionComponent = () => {
   return (
@@ -19,6 +20,9 @@ const App: React.FunctionComponent = () => {
         <li>
           <Link to="/use-effect">useEffect() / useLayoutEffect()</Link>
         </li>
+        <li>
+          <Link to="/use-context">useContext()</Link>
+        </li>
       </ul>
 
       <Switch>
@@ -28,6 +32,9 @@ const App: React.FunctionComponent = () => {
         </Route>
         <Route exact path="/use-effect">
           <UseEffect />
+        </Route>
+        <Route exact path="/use-context">
+          <UseContext />
         </Route>
 
       </Switch>

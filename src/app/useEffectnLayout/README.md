@@ -1,6 +1,6 @@
 # Use Effect & Use Layout Effect
 
-Kedua hooks ini sebenernya konsepnya hampir sama, cuman perbedaannya adalah dari bagaimana cara komunikasi dari function ini bekerja, dan timing dalam penggunaannya. So, dicase kali ini dibagian pertama secara konsep kita fokus pada `useEffect` dulu saja karena kedua hooks ini mempunyai konsep yang hampir sama, tapi secara penggunaan nanti akan dijelaskan bagaiamana kedua hooks ini digunakan.
+Kedua hooks ini sebenernya konsepnya hampir sama, cuman perbedaannya adalah dari bagaimana cara komunikasi dari function ini bekerja, dan timing dalam penggunaannya. So, dicase kali ini dibagian pertama secara konsep kita fokus pada `useEffect` dulu saja karena kedua hooks ini mempunyai konsep yang hampir sama, tapi secara penggunaan nanti akan dijelaskan bagaimana kedua hooks ini digunakan.
 
 ## `useEffect()`
 `useEffect` ini erat kaitannya dengan lifecycle pada react, pada komponen yang berbasis `Class` tahap pada umumnya adalah:
@@ -64,7 +64,7 @@ React.useEffect(() => {
 
 
 ## `useLayoutEffect()`
-Bedanya antara `useLayoutEffect()` dan `useEffect()` adalah dari sifatnya, jika `useEffect` berjalan secara asynchronous setelah perubahan yang terjadi pada DOM telah selesai di render dilayar, sedangkan `useLayoutEffect()` berjalan secara synchronous sebelum perubahan yang terjadi pada DOM dirender dilayar. Pertanyaannya adalah, saat kapan hooks ini digunakan? :)
+Bedanya antara `useLayoutEffect()` dan `useEffect()` adalah dari sifatnya, jika `useEffect` berjalan secara **asynchronous** setelah perubahan yang terjadi pada DOM telah selesai di render dilayar, sedangkan `useLayoutEffect()` berjalan secara **synchronous** sebelum perubahan yang terjadi pada DOM dirender dilayar. Pertanyaannya adalah, saat kapan hooks ini digunakan? :)
 
 Didalam [dokumentasinya](https://reactjs.org/docs/hooks-reference.html#uselayouteffect), dan beberapa source mereka mengatakan hooks ini digunakan saat ketika ingin **membaca tata letak dari DOM, checking scroll position, dan me-render perubahan DOM yang sifatnya synchronous**. Perhatikan kode dibawah ini:
 
@@ -109,6 +109,6 @@ Coba lihat di browser lalu klik button beberapa kali secara cepat. Maka akan ter
 - Hati-hati dengan dependencies, karena jika tidak tepat penggunannya akan menyebabkan bugs pada apps, ex: infinite loop. Pasang dependencies jika diperlukan saja, sesuaikan dengan kebutuhan.
 - Jika ingin melakukan perubahan DOM atau masalah visual yang sifatnya synchronous, disarankan menggunakan `useLayoutEffect()`, karena akan lebih cepat, dan menghindari pemblokiran visual seperti pada contoh diatas tadi.
 
-# Next Hooks
+## Next Hooks
 [useEffect() & useLayoutEffect()](https://reactjs.org/docs/hooks-reference.html#usereducer)
 

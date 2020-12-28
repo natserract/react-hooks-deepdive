@@ -28,6 +28,6 @@ Jika nilai state udah banyak atau complex, disarankan menggunakan [`useReducer()
 
 Kadang beberapa data, tidak harus menggunakan hooks `useState()`, bisa jadi nantinya kamu terlalu terpaku dengan ini. Yang harusnya caranya lebih mudah, bisa jadi lebih ribet dan jadinya tidak efektif. 
 
-# Next Hooks
+## Next Hooks
 [useEffect() & useLayoutEffect()](https://github.com/natserract/react-hooks-deepdive/tree/main/src/app/useEffectnLayout)
 
