@@ -132,7 +132,7 @@ Kamu juga  bisa menginitialize `useCallback()` nya di komponennya langsung cuman
 ```tsx
 const handlerCallback = React.useCallback(() => {
     setState({
-        state: 'Without useCallback()',
+        state: 'Transform to useCallback()',
     })
 }, [contextState.state, setState]);
 
