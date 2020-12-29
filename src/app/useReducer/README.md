@@ -19,11 +19,9 @@ const [state, dispatch] = React.useReducer(__ReducerName__);
 
 Jika useState menggunakan **callback**, useReducer menggunakan **dispatch** untuk melakukan manipulasi statenya. Mungkin ada beberapa pertanyaan, *"mengapa harus memakai useReducer() daripada useState()?, saat kapan menggunakan ini?"*, jawabannya akan menuju pada penjelasan dibawah ini
 
-
-## Main Case
 Case kali ini adalah melakukan request api, dengan menggunakan beberapa macam state. Disini saya akan buat 2 perbandingan kode antara `useState()` dengan `useReducer()`
 
-### Menggunakan `useState()`
+## Menggunakan `useState()`
 Dimulai dengan implementasi penggunaan `useState`, coba lihat kode dibawah ini:
 
 ```tsx
@@ -58,7 +56,7 @@ Dalam kode diatas terlihat ada 3 macam varian state, yaitu `posts`, `loading`, d
 
 Setelah cukup puas di bagian `useState()`, coba kita merujuk pada `useReducer()` (sambil mengingat beberapa literasi tadi).
 
-### Menggunakan `useReducer()`
+## Menggunakan `useReducer()`
 Selanjutnya implementasi penggunaan `useReducer`, coba lihat kode dibawah ini:
 
 ```tsx
