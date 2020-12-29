@@ -151,9 +151,9 @@ JSON.stringify(state.posts);
 ...
 ```
 
-Jika useReducer sudah di define, `[state, dispatch]` kedua variabel ini perannya adalah, `state` untuk view, `dispatch` untuk actions / mutasi. Di fungsi `Reducer()` terdapat 3 type: `@@FETCH_REQUEST`, `@@FETCH_SUCCESS`, dan `@@FETCH_ERROR`, jadi yaudah tinggal panggil dispatchnya, sesuainya typenya, isi payloadnya (barangnya), done!
+Jika useReducer sudah di define, `[state, dispatch]` kedua variabel ini perannya adalah, `state` untuk view, `dispatch` untuk actions / mutasi. Di fungsi `Reducer()` terdapat 3 type: `@@FETCH_REQUEST`, `@@FETCH_SUCCESS`, dan `@@FETCH_ERROR`. Jadi yaudah tinggal panggil dispatchnya, sesuain typenya, isi payloadnya (barangnya), done!
 
-So, setelah penjelasan yg cukup detail diatas hal yang baru saya sadari adalah bahwa ketika membuat reducer kita akan lebih berfikir **apa yang diperlukan oleh user?** daripada **apa yang harus dilakukan setelahnya?** bukan?, ini adalah salah satu jawaban saat kapan reducer itu digunakan, dan kelebihan/kekurangannya, yang terpenting adalah disesuaikan dengan kebutuhan dari aplikasi itu sendiri. Kamu juga bisa explore lebih dalam mengenai `useReducer()` ini, misal mengkombinasikannya dengan context, membuat custom hooks, dll. Saya pikir sebelum belajar redux, sebelumnya kamu coba pelajari bagian ini dulu.
+So, setelah penjelasan yg cukup detail diatas hal yang baru saya sadari adalah bahwa ketika membuat reducer kita akan lebih berfikir **apa yang diperlukan oleh user?** daripada **apa yang harus dilakukan setelahnya?** bukan?, ini adalah salah satu jawaban saat kapan reducer itu digunakan, dan kelebihan/kekurangannya. Yang terpenting disesuaikan dengan kebutuhan dan lihat kondisi, btw kamu juga bisa explore lebih dalam mengenai `useReducer()` ini, misal mengkombinasikannya dengan context, membuat custom hooks, dll. Saya pikir sebelum belajar redux, sebelumnya kamu coba pelajari bagian ini dulu ;).
 
 ## Next Hooks
-[useReducer()](https://github.com/natserract/react-hooks-deepdive/tree/main/src/app/useReducer)
+[useCallback()](https://github.com/natserract/react-hooks-deepdive/tree/main/src/app/useCallback)
