@@ -143,5 +143,5 @@ Alasannya mengapa menggunakan `useCallback()` adalah karena ini *'Using an arrow
 
 
 ## Next Hooks
-[useEffect() & useLayoutEffect()](https://reactjs.org/docs/hooks-reference.html#usereducer)
+[useReducer()](https://github.com/natserract/react-hooks-deepdive/tree/main/src/app/useReducer)
 

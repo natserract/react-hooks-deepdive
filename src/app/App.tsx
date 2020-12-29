@@ -9,6 +9,7 @@ import {
 import UseState from './useState/';
 import UseEffect from './useEffectnLayout';
 import UseContext from './useContext';
+import UseReducer from './useReducer';
 
 const App: React.FunctionComponent = () => {
   return (
@@ -23,6 +24,9 @@ const App: React.FunctionComponent = () => {
         <li>
           <Link to="/use-context">useContext()</Link>
         </li>
+        <li>
+          <Link to="/use-reducer">useReducer()</Link>
+        </li>
       </ul>
 
       <Switch>
@@ -35,6 +39,10 @@ const App: React.FunctionComponent = () => {
         </Route>
         <Route exact path="/use-context">
           <UseContext />
+        </Route>
+
+        <Route exact path="/use-reducer">
+          <UseReducer />
         </Route>
 
       </Switch>
