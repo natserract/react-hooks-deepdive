@@ -40,8 +40,6 @@ export default function UseReducer() {
     const [state, dispatch] = React.useReducer<React.Reducer<any, any>>(Reducer, initialState);
 
     const fetchRequest = async () => {
-        dispatch({ type: '@@FETCH_REQUEST' });
-
         const response = await fetch('https://jsonplaceholder.typicode.com/posts');
         const body = await response.json();
 
@@ -65,7 +63,16 @@ export default function UseReducer() {
     };
 
     React.useEffect(() => {
-        fetchRequest();
+        let isSubsribed = true;
+
+        if (isSubsribed) {
+            fetchRequest()
+        }
+
+        return () => {
+            isSubsribed = false;
+        }
+
     }, []);
 
     if (state.errors) return <h4>Errors: {JSON.stringify(state.errors)}</h4>

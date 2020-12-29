@@ -24,7 +24,16 @@ export default function UseState() {
     });
 
     React.useEffect(() => {
-        fetchRequest();
+        let isSubsribed = true;
+
+        if (isSubsribed) {
+            fetchRequest();
+        }
+
+        return () => {
+            isSubsribed = false;
+        }
+        
     }, []);
 
 

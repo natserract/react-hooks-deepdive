@@ -19,7 +19,7 @@ const App: React.FunctionComponent = () => {
           <Link to="/use-state">useState()</Link>
         </li>
         <li>
-          <Link to="/use-effect">useEffect() / useLayoutEffect()</Link>
+          <Link to="/use-effect">useEffect() & useLayoutEffect()</Link>
         </li>
         <li>
           <Link to="/use-context">useContext()</Link>
