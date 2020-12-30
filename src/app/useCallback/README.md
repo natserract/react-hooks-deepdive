@@ -32,13 +32,14 @@ Jadi maksudnya seperti ini, ketika button di component `List` ini di klik maka a
 ```tsx
 const functionLogs = new Set();
 
-// Debug process
 functionLogs.add(addItems);
 
 console.log(`Without callback addItems(), created: `, functionLogs.size, ' times');
 ```
 
-Kalau kamu lihat examplenya, coba buka konsol lalu coba klik antara button yang tidak menggunakan callback, dan yang menggunakan `useCallback()`. Coba perhatikan, ketika button tidak pake `useCallback()` di klik, maka nilai pada teks ini `Without callback addItems(), created: 1 times` akan selalu bertambah, begitu juga saat button yg pake `useCallback()` di klik, anehnya nilai pada teks `Without callback addItems(), created: 1 times` ini juga ikut bertambah. Coba lihat ini (ketika di compile): 
+Kalau kamu lihat examplenya, coba buka konsol lalu coba klik antara button yang tidak menggunakan callback, dan yang menggunakan `useCallback()`. Coba perhatikan, ketika button tidak pake `useCallback()` di klik, maka nilai pada teks ini `Without callback addItems(), created: 1 times` akan selalu bertambah, begitu juga saat button yg pake `useCallback()` di klik, anehnya nilai pada teks `Without callback addItems(), created: 1 times` ini juga ikut bertambah. 
+
+Kalau file `index.tsx` kita kompile, maka hasilnya seperti ini: 
 
 ```js
 var addItems = function () {
@@ -50,10 +51,25 @@ var addItems = function () {
 };
 ```
 
-Salah satu solusinya adalah membuat [bind(this)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) lalu menyimpannya di constructor `this.addItems = this.addItems.bind(this)`. Tapi masalahnya adalah ini `functional` komponen bukan `Class` komponen. So, why care? Okay, coba bayangkan saja ketika komponen mempunyai struktur yang kompleks, atau ada proses yang berjalan secara maraton, tentu ini bisa menyebabkan terjadinya memory leaks. 
+Jadi salah satu solusinya adalah membuat [bind(this)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) lalu menyimpannya di constructor `this.addItems = this.addItems.bind(this)`. Tapi masalahnya adalah ini `functional` komponen bukan `Class` komponen. So, why care? 
 
-Maka dari itu peran hooks `useCallback()` ini tepat untuk digunakan (tergantung kebutuhan dan kondisi). Penggunaannya sendiri mirip seperti `useEffect()`, untuk lebih jelasnya bisa lihat example.
+Okay, coba bayangkan saja ketika komponen mempunyai struktur yang kompleks, atau ada proses yang berjalan secara maraton, tentu ini bisa menyebabkan terjadinya memory leaks. 
 
+Maka dari itu peran hooks `useCallback()` ini tepat untuk digunakan (tergantung kebutuhan dan kondisi). Penggunaannya sendiri mirip seperti `useEffect()`:
+
+```tsx
+// Recreate addItemsWCallback on every change of itemsWCallback.lists!
+const addItemsWCallback = React.useCallback(() => {
+    let _placeArrayWCallback = [];
+    _placeArrayWCallback.push(`Item ${itemsWCallback.lists.length + 1}`)
+
+    setItemsWCallback({
+        lists: [...itemsWCallback.lists.concat(_placeArrayWCallback)]
+    })
+}, [itemsWCallback.lists]);
+
+console.log(`With callback addItemsWCallback(), created: `, functionLogsWCallback.size, ' times');
+```
 
 ## Notes
 
