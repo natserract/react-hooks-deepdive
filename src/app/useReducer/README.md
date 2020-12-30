@@ -50,7 +50,7 @@ const fetchRequest = (async () => {
 
 Dalam kode diatas terlihat ada 3 macam varian state, yaitu `posts`, `loading`, dan `errors` (ini sebagai contoh, case sebenernya bisa jadi kamu akan menemukan macam varian state yang lebih banyak dan kompleks). Di dalam function `fetchRequest()` proses fetching dilakukan, dari contoh kode diatas saya akan berikan beberapa literasi:
 
-- Jika kita lihat, untuk melakukan state kita akan memanggil fungsi set* (setErrors, setLoading, etc), dari sini kita akan berfikir lebih ke **apa yang harus saya lakukan setelah fetch berhasil**, right?
+- Jika kita lihat, untuk melakukan perubahan state kita akan memanggil fungsi set* (setErrors, setLoading, etc), dari sini kita akan berfikir lebih ke **apa yang harus saya lakukan setelah fetch berhasil**, right?
 - Dari sisi kode memang terlihat lebih sedikit, tapi ketika state sudah mencapai level kompleks dan banyak, manajemen yang dilakukan **akankah lebih mudah?**, begitu juga dengan proses pengujian / testing.
 - Dan coba pahami kata-kata Sunil Pai (React Team) **"Using a reducer helps separate reads, from writes."**
 
@@ -153,7 +153,7 @@ JSON.stringify(state.posts);
 
 Jika useReducer sudah di define, `[state, dispatch]` kedua variabel ini perannya adalah, `state` untuk view, `dispatch` untuk actions / mutasi. Di fungsi `Reducer()` terdapat 3 type: `@@FETCH_REQUEST`, `@@FETCH_SUCCESS`, dan `@@FETCH_ERROR`. Jadi yaudah tinggal panggil dispatchnya, sesuain typenya, isi payloadnya (barangnya), done!
 
-So, setelah penjelasan yg cukup detail diatas hal yang baru saya sadari adalah bahwa ketika membuat reducer kita akan lebih berfikir **apa yang diperlukan oleh user?** daripada **apa yang harus dilakukan setelahnya?** bukan?, ini adalah salah satu jawaban saat kapan reducer itu digunakan, dan kelebihan/kekurangannya. Yang terpenting disesuaikan dengan kebutuhan dan lihat kondisi, btw kamu juga bisa explore lebih dalam mengenai `useReducer()` ini, misal mengkombinasikannya dengan context, membuat custom hooks, dll. Saya pikir sebelum belajar redux, sebelumnya kamu coba pelajari bagian ini dulu ;).
+So, setelah penjelasan yg cukup detail diatas hal yang baru saya sadari adalah bahwa ketika membuat reducer kita akan lebih berfikir **apa yang diperlukan oleh user?** daripada **apa yang harus dilakukan setelahnya** bukan?, ini adalah salah satu jawaban saat kapan reducer itu digunakan, dan kelebihan/kekurangannya. Yang terpenting disesuaikan dengan kebutuhan dan kondisi. Btw kamu juga bisa explore lebih dalam mengenai `useReducer()` ini, misal mengkombinasikannya dengan context, membuat custom hooks, dll. Saya pikir sebelum belajar redux, sebelumnya kamu coba pelajari bagian ini dulu ;).
 
 ## Next Hooks
 [useCallback()](https://github.com/natserract/react-hooks-deepdive/tree/main/src/app/useCallback)

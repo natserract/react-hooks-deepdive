@@ -10,6 +10,7 @@ import UseState from './useState/';
 import UseEffect from './useEffectnLayout';
 import UseContext from './useContext';
 import UseReducer from './useReducer';
+import UseCallback from './useCallback';
 
 const App: React.FunctionComponent = () => {
   return (
@@ -27,6 +28,9 @@ const App: React.FunctionComponent = () => {
         <li>
           <Link to="/use-reducer">useReducer()</Link>
         </li>
+        <li>
+          <Link to="/use-callback">useCallback()</Link>
+        </li>
       </ul>
 
       <Switch>
@@ -43,6 +47,10 @@ const App: React.FunctionComponent = () => {
 
         <Route exact path="/use-reducer">
           <UseReducer />
+        </Route>
+
+        <Route exact path="/use-callback">
+          <UseCallback />
         </Route>
 
       </Switch>

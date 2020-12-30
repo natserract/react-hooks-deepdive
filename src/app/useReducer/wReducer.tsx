@@ -40,6 +40,8 @@ export default function UseReducer() {
     const [state, dispatch] = React.useReducer<React.Reducer<any, any>>(Reducer, initialState);
 
     const fetchRequest = async () => {
+        dispatch({ type: '@@FETCH_REQUEST' });
+
         const response = await fetch('https://jsonplaceholder.typicode.com/posts');
         const body = await response.json();
 
