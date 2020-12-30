@@ -61,7 +61,7 @@ Jadi salah satu solusinya adalah membuat [bind(this)](https://developer.mozilla.
 Tapi masalahnya adalah ini `functional` komponen bukan `Class` komponen. So, *why care?, pake arrow function aja gpp* Okay, iya bener gapapa selagi ga ada masalah performance, tpi coba bayangkan saja ketika komponen mempunyai struktur yang kompleks, atau ada proses yang berjalan secara maraton, tentu ini bisa menyebabkan terjadinya memory leaks. Maka harus ada pengoptimalan, krn itu peran hooks `useCallback()` ini tepat untuk digunakan, penggunaannya sendiri mirip seperti `useEffect()`:
 
 ```tsx
-// Recreate addItemsWCallback on every change of itemsWCallback.lists!
+// Recreate addItemsWCallback on every change of itemsWCallback.lists not every component re-rendered!
 const addItemsWCallback = React.useCallback(() => {
     let _placeArrayWCallback = [];
     _placeArrayWCallback.push(`Item ${itemsWCallback.lists.length + 1}`)
