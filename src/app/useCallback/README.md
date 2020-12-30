@@ -38,7 +38,9 @@ functionLogs.add(addItems);
 console.log(`Without callback addItems(), created: `, functionLogs.size, ' times');
 ```
 
-Kalau kamu lihat examplenya, coba buka konsol lalu coba klik antara button yang tidak menggunakan callback, dan yang menggunakan `useCallback()`. Coba perhatikan, ketika button tidak pake `useCallback()` di klik, maka nilai pada teks ini `Without callback addItems(), created: 1 times` akan selalu bertambah, begitu juga saat button yg pake `useCallback()` di klik, anehnya nilai pada teks `Without callback addItems(), created: 1 times` ini juga ikut bertambah. 
+Kalau kamu lihat examplenya, coba buka konsol lalu coba klik antara button yang tidak menggunakan callback, dan yang menggunakan `useCallback()`. Coba perhatikan, ketika button tidak pake `useCallback()` di klik maka: 
+- Nilai pada teks ini `Without callback addItems(), created: 1 times` akan selalu bertambah
+- Begitu juga saat button yg pake `useCallback()` di klik, anehnya nilai pada teks `Without callback addItems(), created: 1 times` ini juga ikut bertambah. 
 
 Kalau file `index.tsx` kita kompile, maka hasilnya seperti ini: 
 
