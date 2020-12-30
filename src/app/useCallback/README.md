@@ -25,6 +25,7 @@ function List() {
 Dan lagi sekali, lihat beberapa himbauan React di [dokumentasinya](https://reactjs.org/docs/faq-functions.html#how-do-i-pass-a-parameter-to-an-event-handler-or-callback)
 
 > Using in render creates a new function each time the component renders, which may have performance implications.
+
 > Using an arrow function in render creates a new function each time the component renders, which may break optimizations based on strict identity comparison.
 
 Jadi maksudnya seperti ini, ketika button di component `List` ini di klik maka akan memanggil fungsi `() => addItems()`. Proses yang terjadi adalah nilai state akan berubah dan terjadi proses perenderan ulang `items.lists.map(() => ...})`. Nah masalahnya adalah ketika komponen `List` ini di render ulang (bukan perpindahan routes, krn setiap pergantian routes komponen selalu dirender ulang), yang terjadi di belakang layar ternyata fungsi `addItems()` ini akan selalu dibuat baru. *No bukti, Hoax!*  Hmm, okay ini aku kasi buktinya:
@@ -51,11 +52,7 @@ var addItems = function () {
 };
 ```
 
-Jadi salah satu solusinya adalah membuat [bind(this)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) lalu menyimpannya di constructor `this.addItems = this.addItems.bind(this)`. Tapi masalahnya adalah ini `functional` komponen bukan `Class` komponen. So, why care? 
-
-Okay, coba bayangkan saja ketika komponen mempunyai struktur yang kompleks, atau ada proses yang berjalan secara maraton, tentu ini bisa menyebabkan terjadinya memory leaks. 
-
-Maka dari itu peran hooks `useCallback()` ini tepat untuk digunakan (tergantung kebutuhan dan kondisi). Penggunaannya sendiri mirip seperti `useEffect()`:
+Jadi salah satu solusinya adalah membuat [bind(this)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) lalu menyimpannya di constructor `this.addItems = this.addItems.bind(this)`. Tapi masalahnya adalah ini `functional` komponen bukan `Class` komponen. So, why care? Okay, coba bayangkan saja ketika komponen mempunyai struktur yang kompleks, atau ada proses yang berjalan secara maraton, tentu ini bisa menyebabkan terjadinya memory leaks. Maka dari itu peran hooks `useCallback()` ini tepat untuk digunakan (tergantung kebutuhan dan kondisi). Penggunaannya sendiri mirip seperti `useEffect()`:
 
 ```tsx
 // Recreate addItemsWCallback on every change of itemsWCallback.lists!
@@ -73,7 +70,7 @@ console.log(`With callback addItemsWCallback(), created: `, functionLogsWCallbac
 
 ## Notes
 
-- Saya kira saat ini kamu sudah cukup paham hooks ini saat kapan digunakan, tetapi jika ingin melihat real case hooks `useCallback()` ini digunakan. Bisa mampir ke artikelnya **Kent C Codds** [disini](https://kentcdodds.com/blog/usememo-and-usecallback/)
+- Saya kira saat ini kamu sudah cukup paham hooks ini saat kapan digunakan, tetapi jika ingin melihat real case bisa mampir ke artikelnya **Kent C Codds** [disini](https://kentcdodds.com/blog/usememo-and-usecallback/)
 - Jangan lupa install extension chrome ini untuk melihat performance dari komponen [react developer tools](https://chrome.google.com/webstore/detail/fmkadmapgofadopljbjfkapdkoienihi)
 - Saat event dijalankan / fungsi dipanggil dari masing-masing tipe komponen, lihat bagaimana logsnya untuk tau apa yang terjadi
 
