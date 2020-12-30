@@ -28,7 +28,9 @@ Dan lagi sekali, lihat beberapa himbauan React di [dokumentasinya](https://react
 
 > Using an arrow function in render creates a new function each time the component renders, which may break optimizations based on strict identity comparison.
 
-Jadi maksudnya seperti ini, ketika button di component `List` ini di klik maka akan memanggil fungsi `() => addItems()`. Proses yang terjadi adalah nilai state akan berubah dan terjadi proses perenderan ulang `items.lists.map(() => ...})`. Nah masalahnya adalah ketika komponen `List` ini di render ulang (bukan perpindahan routes, krn setiap pergantian routes komponen selalu dirender ulang), yang terjadi di belakang layar ternyata fungsi `addItems()` ini akan selalu dibuat baru. *No bukti, Hoax!*  Hmm, okay ini aku kasi buktinya:
+Jadi maksudnya seperti ini, ketika button di component `List` ini di klik maka akan memanggil fungsi `() => addItems()`. Proses yang terjadi adalah nilai state akan berubah dan terjadi proses perenderan ulang `items.lists.map(() => ...})`. Nah masalahnya adalah ketika komponen `List` ini di render ulang (bukan perpindahan routes, krn setiap pergantian routes komponen selalu dirender ulang), yang terjadi di belakang layar ternyata fungsi `addItems()` ini akan selalu dibuat baru. 
+
+*No bukti, Hoax!*  Hmm, okay ini aku kasi buktinya:
 
 ```tsx
 const functionLogs = new Set();
@@ -54,7 +56,9 @@ var addItems = function () {
 };
 ```
 
-Jadi salah satu solusinya adalah membuat [bind(this)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) lalu menyimpannya di constructor `this.addItems = this.addItems.bind(this)`. Tapi masalahnya adalah ini `functional` komponen bukan `Class` komponen. So, *why care?, pake arrow function aja gpp* Okay, iya bener gapapa selagi ga ada masalah performance, tpi coba bayangkan saja ketika komponen mempunyai struktur yang kompleks, atau ada proses yang berjalan secara maraton, tentu ini bisa menyebabkan terjadinya memory leaks. Maka harus ada pengoptimalan, krn itu peran hooks `useCallback()` ini tepat untuk digunakan, penggunaannya sendiri mirip seperti `useEffect()`:
+Jadi salah satu solusinya adalah membuat [bind(this)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) lalu menyimpannya di constructor `this.addItems = this.addItems.bind(this)`. 
+
+Tapi masalahnya adalah ini `functional` komponen bukan `Class` komponen. So, *why care?, pake arrow function aja gpp* Okay, iya bener gapapa selagi ga ada masalah performance, tpi coba bayangkan saja ketika komponen mempunyai struktur yang kompleks, atau ada proses yang berjalan secara maraton, tentu ini bisa menyebabkan terjadinya memory leaks. Maka harus ada pengoptimalan, krn itu peran hooks `useCallback()` ini tepat untuk digunakan, penggunaannya sendiri mirip seperti `useEffect()`:
 
 ```tsx
 // Recreate addItemsWCallback on every change of itemsWCallback.lists!
