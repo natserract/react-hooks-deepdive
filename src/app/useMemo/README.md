@@ -45,7 +45,7 @@ const DetailsMemoized = React.memo(Details);
 <DetailsMemoized name={name} title="Judul" memo={true} />
 <Details name={name} title="Judul" memo={false} />
 ```
-Untuk lihat hasilnya, kamu bisa coba lihat example bagaiamana proses render dari komponen yang di memoisasi dan yang tidak.
+Untuk lihat hasilnya, kamu bisa coba lihat example bagaimana proses render dari komponen yang di memoisasi dan yang tidak.
 
 ## Notes
 - Semua hooks ini `useMemo`, `useCallback`, `React.memo` tujuannya adalah untuk pengoptimalan kinerja, gunakan dengan tepat jangan terlalu bergantung pada ini.

@@ -33,7 +33,7 @@ const App: React.FunctionComponent = () => {
           <Link to="/use-callback">useCallback()</Link>
         </li>
         <li>
-          <Link to="/use-memo">useMemo()</Link>
+          <Link to="/use-memo">useMemo() & React.memo</Link>
         </li>
       </ul>
 
