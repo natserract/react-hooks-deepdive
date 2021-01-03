@@ -20,4 +20,4 @@ Module ini merupakan projek open source, jadi pull request dipersilahkan. Bagi y
 - [https://reactjs.org/docs/hooks-reference.html](https://reactjs.org/docs/hooks-reference.html)
 - [https://reactjs.org/docs/hooks-faq.html](https://reactjs.org/docs/hooks-faq.html)
 ## Author
-Module ini dibuat oleh Alfin Surya. Untuk pertanyaan, kritik, dan saran, silakan drop email ke telegram [t.me/natserract](https://t.me/natserract).
+Module ini dibuat oleh Alfin Surya. Untuk pertanyaan, kritik, dan saran, silakan pm ke telegram [t.me/natserract](https://t.me/natserract).
