@@ -12,6 +12,7 @@ import UseContext from './useContext';
 import UseReducer from './useReducer';
 import UseCallback from './useCallback';
 import UseMemo from './useMemo';
+import UseRef from './useRef';
 
 const App: React.FunctionComponent = () => {
   return (
@@ -34,6 +35,9 @@ const App: React.FunctionComponent = () => {
         </li>
         <li>
           <Link to="/use-memo">useMemo() & React.memo</Link>
+        </li>
+        <li>
+          <Link to="/use-ref">useRef()</Link>
         </li>
       </ul>
 
@@ -59,6 +63,10 @@ const App: React.FunctionComponent = () => {
 
         <Route exact path="/use-memo">
           <UseMemo />
+        </Route>
+
+        <Route exact path="/use-ref">
+          <UseRef />
         </Route>
 
 
