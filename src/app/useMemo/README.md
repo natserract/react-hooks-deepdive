@@ -5,7 +5,7 @@ Hook ini memiliki kesamaan dengan hooks `useCallback` yaitu sama-sama untuk opti
 `useMemo()` memiliki 2 parameter `function useMemo<T>(factory: () => T, deps: DependencyList | undefined): T;` mirip seperti `useEffect`. Hook ini akan berjalan jika salah satu dependensinya berubah. Perhatikan kode dibawah ini:
 
 ```tsx
-function fibonacci(n: any): any {
+function fibonacci(n: any) {
     console.log('fibonacci() called');
     
     if (n <= 1) {
@@ -29,7 +29,7 @@ Yang perlu ditekankan disini, gunakan `useMemo` untuk menjalankan fungsi yang me
 [React.memo](https://reactjs.org/docs/react-api.html#reactmemo) merupakan hoc (higher order components) yang tujuannya untuk optimisasi rendering. `React.memo` digunakan dengan tujuan untuk menghindari fungsi render yang berulang-ulang dengan `props` yang sama, jadi kalau `props` atau hasil dari komponen tersebut sama, React akan melewatinya (tidak merender ulang). Namun ketika `props` atau hasilnya berbeda dengan hasil render sebelumnya barulah komponen di render ulang lalu hasilnya di simpan ke dalam memori.
 
 ```tsx
-function Details({ name, title, memo }: any) {
+function Details({ name, title, memo }) {
     console.log(memo ? 'DetailsMemoized rendered' : 'Details rendered');
 
     return (
@@ -50,3 +50,6 @@ Untuk lihat hasilnya, kamu bisa coba lihat example bagaimana proses render dari 
 ## Notes
 - Semua hooks ini `useMemo`, `useCallback`, `React.memo` tujuannya adalah untuk pengoptimalan kinerja, gunakan dengan tepat jangan terlalu bergantung pada ini.
 - Perbedaan `useMemo`, & `React.memo` adalah: `useMemo` untuk optimisasi fungsi, sedangkan `React.memo` untuk optimisasi komponen.
+
+## Next Hooks
+[useRef()](https://github.com/natserract/react-hooks-deepdive/tree/main/src/app/useRef)
