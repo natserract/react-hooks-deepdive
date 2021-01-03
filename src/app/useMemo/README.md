@@ -49,7 +49,8 @@ Untuk lihat hasilnya, kamu bisa coba lihat example bagaimana proses render dari 
 
 ## Notes
 - Semua hooks ini `useMemo`, `useCallback`, `React.memo` tujuannya adalah untuk pengoptimalan kinerja, gunakan dengan tepat jangan terlalu bergantung pada ini.
+- Secara default, React.memo hanya akan membandingkan objek dalam props. Jika ingin mengontrol perbandingan, kamu juga dapat menambahkan function perbandingan sebagai argument kedua. [Dokumentasi](https://reactjs.org/docs/react-api.html#reactmemo)  
 - Perbedaan `useMemo`, & `React.memo` adalah: `useMemo` untuk optimisasi fungsi, sedangkan `React.memo` untuk optimisasi komponen.
-
+- When should you not use React.memo [stackoverflow](https://stackoverflow.com/questions/53074551/when-should-you-not-use-react-memo)
 ## Next Hooks
 [useRef()](https://github.com/natserract/react-hooks-deepdive/tree/main/src/app/useRef)
