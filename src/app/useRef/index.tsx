@@ -1,12 +1,5 @@
 import * as React from 'react';
 
-/**
- * useRef()membuat objek JavaScript biasa Mutasi .current properti tidak menyebabkan render ulang
- * 
- * mengakses DOM, (mengambil nilai input, mengatur fokus, dll)
- * menyimpan data yang tidak membutuhkan render ulang 
- */
-
 function UseRef() {
     const refDOM = React.useRef<any>(null);
     const refInput = React.useRef<any>(null);

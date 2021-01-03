@@ -1,24 +1,5 @@
 import * as React from 'react';
 
-/**
- * Render multiple times with another component
- * useMemo untuk fungsi, memo untuk component
- * 
- * useMemo() mengembalikan/menyimpan cache nilai / hasil 
- * 
- * kapan pun Anda mencoba mencegah menjalankan kembali fungsi yang mahal, yang berjalan banyak waktu, atau menggunakan banyak sumber daya. Mengapa? Karena useMemo menyimpan hasil eksekusi fungsi dalam memori, dan ini berpotensi menjadi besar dan secara ironis merusak kinerja Aplikasi Anda.
- * 
- * React.memo memungkinkan Anda untuk menghindari menjalankan fungsi render anak jika komponen induk merender anak tersebut dengan props yang sama. Jika rekonsiliasi menggantikan induk dengan komponen baru, induk baru tidak akan menggunakan kembali komponen memo yang sama bahkan jika itu merender anak yang sama sebagai induk terakhir.
- * 
- * https://stackoverflow.com/questions/61377100/why-my-header-render-every-time-already-use-react-memo
- * 
- * Dengan memoization, kami dapat mencegah fungsi kami memanggil fungsi yang menghitung ulang hasil yang sama berulang kali. 
- * 
- * useCallback  mencegah fungsi dibuat ulang lagi, berdasarkan daftar dependensi. Ini mengembalikan fungsi itu sendiri. Gunakan saat Anda ingin menyebarkannya ke komponen turunan, dan mencegah dari fungsi yang mahal untuk berjalan kembali.
- * 
- * useMemo  menjaga fungsi agar tidak dijalankan lagi jika tidak menerima sekumpulan parameter yang sebelumnya digunakan. Ini mengembalikan hasil dari suatu fungsi. Gunakan saat Anda ingin mencegah beberapa operasi berat atau mahal dipanggil pada setiap render.
- */
-
 function fibonacci(n: any): any {
     console.log('fibonacci() called');
 
@@ -84,8 +65,8 @@ function UseMemo() {
                 <Details name={name} title="Judul" memo={false} />
 
                 <button onClick={() => setName('Surya')}>Change Name</button>
-                <br/>
-                <br/>
+                <br />
+                <br />
                 <div className="keterangan">
                     <p>
                         (Ketika button increment / decrement di klik maka komponen details tanpa memoisasi akan dipanggil berulang2)

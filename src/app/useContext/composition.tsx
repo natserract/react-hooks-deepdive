@@ -2,26 +2,6 @@
 /** Example of composition */
 import * as React from 'react';
 
-/** 
- * Contoh implmentasi Component Composition
- * 
- * Kata kuncinya ada pada kata ini: 'so that the intermediate components don’t need to know about another component props' artinya, antara komponen luar / containment tidak usah peduli dengan props yang berada di komponen anak / specialization
- * 
- * Intinya component composition adalah suatu react pattern yang tujuannya adalah sebagai terusan yang dipassing melalui props. Mirip seperti { props.children }. Contoh:
- * 
- * function ButtonText(){
- * return <span>
- * }
- * function Button(props){
- *    return <button> { props.render } </button
- * }
- * 
- * function Container(){
- *    return <Button render={ButtonText}/>
- * }
- * 
-*/
-
 function ContactBrand(props: any) {
     return <h2>{props.title}</h2>;
 }

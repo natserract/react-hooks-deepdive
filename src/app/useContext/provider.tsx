@@ -7,7 +7,6 @@ const initialState = {
 export const Context = React.createContext<typeof initialState | any>(undefined);
 
 function ContextProvider(props: React.PropsWithChildren<{}>) {
-    // Initial State
     const [state, setState] = React.useState(initialState);
 
     return (

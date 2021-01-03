@@ -1,21 +1,5 @@
 import * as React from 'react';
 
-/**
- * Memoisasi adalah istilah yang menggambarkan teknik pengoptimalan tempat Anda menyimpan hasil yang dihitung sebelumnya, dan mengembalikan hasil yang di-cache ketika perhitungan yang sama diperlukan lagi.
- * 
- * Memoize adalah tindakan menyimpan hasil masukan dan mengembalikan hasil saat masukan muncul lagi
- * 
- * useCallback() mengembalikan/menyimpan cache callback atau fungsi itu sendiri
- * 
- * Saat tepat:
- *  keadaan mungkin menjadi lebih buruk: ketika tidak menggunakan useCallback, fungsi lama Anda akan dikumpulkan sampahnya, tetapi dengan useCallback itu akan tetap ada di memori, jika salah satu dependensi akan benar lagi untuk mengembalikan versi fungsi lama itu.
- * 
- * Saat tidak tepat:
- * Ketika Anda benar-benar melihat bahwa tidak menggunakannya akan merugikan kinerja Anda, atau akan mengakibatkan eksekusi fungsi yang sangat besar dan tidak perlu (bayangkan dalam demo useCallback, bahwa fungsi ini melakukan panggilan API, dan tidak hanya menambahkan angka. Ini adalah sesuatu yang perlu dicegah).
- * 
- * 
-*/
-
 const functionLogs = new Set();
 const functionLogsReset = new Set();
 
