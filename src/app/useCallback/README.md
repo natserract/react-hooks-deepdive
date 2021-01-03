@@ -74,8 +74,12 @@ const addItemsWCallback = React.useCallback(() => {
 console.log(`With callback addItemsWCallback(), created: `, functionLogsWCallback.size, ' times');
 ```
 
+### Kapan menggunakan `useCallback()`
+`useCallback()` mencegah fungsi dibuat ulang lagi saat komponen di render ulang. Hook ini mengembalikan fungsi itu sendiri. Gunakan saat ingin **menyebarkannya ke komponen turunan, dan mencegah dari fungsi yang mahal untuk berjalan kembali**.
+
 ## Notes
 
+- Fungsi mahal (expensive function) arti sebenernya adalah fungsi yang banyak menghabiskan banyak waktu dan memori
 - Saya kira saat ini kamu sudah cukup paham hooks ini saat kapan digunakan, tetapi jika ingin melihat real case bisa mampir ke artikelnya **Kent C Codds** [disini](https://kentcdodds.com/blog/usememo-and-usecallback/)
 - Jangan lupa install extension chrome ini untuk melihat performance dari komponen [react developer tools](https://chrome.google.com/webstore/detail/fmkadmapgofadopljbjfkapdkoienihi)
 - Saat event dijalankan / fungsi dipanggil dari masing-masing tipe komponen, lihat bagaimana logsnya untuk tau apa yang terjadi

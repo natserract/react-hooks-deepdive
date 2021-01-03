@@ -102,6 +102,8 @@ const Reducer = (state: any = initialState, action: any) => {
 const [state, dispatch] = React.useReducer(Reducer, initialState);
 
 const fetchRequest = async () => {
+    dispatch({ type: '@@FETCH_REQUEST' });
+    
     const response = await fetch('https://jsonplaceholder.typicode.com/posts');
     const body = await response.json();
 

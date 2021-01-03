@@ -11,6 +11,7 @@ import UseEffect from './useEffectnLayout';
 import UseContext from './useContext';
 import UseReducer from './useReducer';
 import UseCallback from './useCallback';
+import UseMemo from './useMemo';
 
 const App: React.FunctionComponent = () => {
   return (
@@ -30,6 +31,9 @@ const App: React.FunctionComponent = () => {
         </li>
         <li>
           <Link to="/use-callback">useCallback()</Link>
+        </li>
+        <li>
+          <Link to="/use-memo">useMemo()</Link>
         </li>
       </ul>
 
@@ -52,6 +56,11 @@ const App: React.FunctionComponent = () => {
         <Route exact path="/use-callback">
           <UseCallback />
         </Route>
+
+        <Route exact path="/use-memo">
+          <UseMemo />
+        </Route>
+
 
       </Switch>
     </Router>

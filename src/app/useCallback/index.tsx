@@ -14,13 +14,6 @@ import * as React from 'react';
  * Ketika Anda benar-benar melihat bahwa tidak menggunakannya akan merugikan kinerja Anda, atau akan mengakibatkan eksekusi fungsi yang sangat besar dan tidak perlu (bayangkan dalam demo useCallback, bahwa fungsi ini melakukan panggilan API, dan tidak hanya menambahkan angka. Ini adalah sesuatu yang perlu dicegah).
  * 
  * 
- * useMemo() mengembalikan/menyimpan cache nilai / hasil 
- * 
- * kapan pun Anda mencoba mencegah menjalankan kembali fungsi yang mahal, yang berjalan banyak waktu, atau menggunakan banyak sumber daya. Mengapa? Karena useMemo menyimpan hasil eksekusi fungsi dalam memori, dan ini berpotensi menjadi besar dan secara ironis merusak kinerja Aplikasi Anda.
- * 
- * React.memomemungkinkan Anda untuk menghindari menjalankan fungsi render anak jika komponen induk merender anak tersebut dengan props yang sama. Jika rekonsiliasi menggantikan induk dengan komponen baru, induk baru tidak akan menggunakan kembali komponen memo yang sama bahkan jika itu merender anak yang sama sebagai induk terakhir.
- * 
- * https://stackoverflow.com/questions/61377100/why-my-header-render-every-time-already-use-react-memo
 */
 
 const functionLogs = new Set();
